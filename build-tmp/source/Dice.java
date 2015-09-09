@@ -15,16 +15,23 @@ import java.io.IOException;
 public class Dice extends PApplet {
 
 
-Die one;
+
 public void setup()
 {
 	noLoop();
+	size(400, 400);
 }
 public void draw()
 {
-	one = new Die(25, 25);
-	one.show();
-	one.roll();
+	for(int y = 50; y <= 300; y += 50)
+	{
+		for(int x = 50; x <= 300; x += 50)
+		{
+			Die one = new Die(x,y);
+			one.roll();
+			one.show();
+		}
+	}
 	
 	//your code here
 }
@@ -45,19 +52,78 @@ class Die //models one single dice cube
 	}
 	public void roll()
 	{
-			
+		fill(0);
+		if(numDots == 1)
+		{
+			numDots = 1;
+		}
+		if(numDots == 2)
+		{
+			numDots = 2;
+		}
+		if(numDots == 3)
+		{
+			numDots = 3;
+		}
+		if(numDots == 4)
+		{
+			numDots = 4;
+		}
+		if(numDots == 5)
+		{
+			numDots = 5;
+		}
+		if(numDots == 6)
+		{
+			numDots = 6;
+		}
 		//your code here
 	}
 	public void show()
 	{
-		background(255);
-		int coor = 50;
-		for(int i = 0; i < numDots; i ++)
+		
+		fill(255);
+		rect(myX,myY,50, 50);
+		fill(0);
+		if(numDots == 1)
 		{
-			fill(255);
-			rect(myX, myY, coor, coor, coor);
+			ellipse(myX+25, myY+25, 10, 10);
 		}
-
+		if(numDots == 2)
+		{
+			ellipse(myX + 40, myY + 40, 10, 10);
+			ellipse(myX + 10, myY + 10, 10, 10);
+		}
+		if(numDots == 3)
+		{
+			ellipse(myX + 40, myY + 40, 10, 10);
+			ellipse(myX + 10, myY + 10, 10, 10);
+			ellipse(myX + 25, myY + 25, 10, 10);
+		}
+		if(numDots == 4)
+		{
+			ellipse(myX + 10, myY + 10, 10, 10);
+			ellipse(myX + 10, myY + 40, 10, 10);
+			ellipse(myX + 40, myY + 10, 10, 10);
+			ellipse(myX + 40, myY + 40, 10, 10);
+		}
+		if(numDots == 5)
+		{
+			ellipse(myX + 10, myY + 10, 10, 10);
+			ellipse(myX + 10, myY + 40, 10, 10);
+			ellipse(myX + 40, myY + 10, 10, 10);
+			ellipse(myX + 40, myY + 40, 10, 10);
+			ellipse(myX + 25, myY + 25, 10, 10);
+		}
+		if(numDots == 6)
+		{
+			ellipse(myX + 10, myY + 10, 10, 10);
+			ellipse(myX + 10, myY + 40, 10, 10);
+			ellipse(myX + 40, myY + 10, 10, 10);
+			ellipse(myX + 40, myY + 40, 10, 10);
+			ellipse(myX + 10, myY + 25, 10, 10);
+			ellipse(myX + 40, myY + 25, 10, 10);
+		}
 		//your code here
 	}
 }

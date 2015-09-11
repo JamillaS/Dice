@@ -15,7 +15,7 @@ import java.io.IOException;
 public class Dice extends PApplet {
 
 
-int sum = 0;
+
 
 public void setup()
 {
@@ -24,9 +24,10 @@ public void setup()
 }
 public void draw()
 {	
-	background(0);
+	//background(0);
 	fill(255);
-	text("The total is " + sum, 20, 20);
+	int sum = 0;
+
 	for(int y = 50; y <= 300; y += 50)
 	{
 		for(int x = 50; x <= 300; x += 50)
@@ -34,15 +35,39 @@ public void draw()
 			Die one = new Die(x,y);
 			one.roll();
 			one.show();
-		}
-		
+			fill(0);
+			if(one.numDots == 1)
+			{
+				sum = sum + one.numDots;
+			}
+			if(one.numDots == 2)
+			{
+				sum = sum + one.numDots;
+			}
+			if(one.numDots == 3)
+			{
+				sum = sum + one.numDots;
+			}
+			if(one.numDots == 4)
+			{
+				sum = sum + one.numDots;
+			}
+			if(one.numDots == 5)
+			{
+				sum = sum + one.numDots;
+			}
+			if(one.numDots == 6)
+			{
+				sum = sum + one.numDots;
+			}
 	}
-	
+	}
+	text("The total is " + sum, 20, 20);
 	//your code here
 }
 public void mousePressed()
 {
-
+	background(255);
 	redraw();
 
 }
@@ -56,7 +81,7 @@ class Die //models one single dice cube
 		myY = y;
 		numDots = (int)(Math.random() * 6 + 1);
 		//variable initializations here
-		
+		roll();
 		
 	}
 	public void roll()
@@ -66,9 +91,7 @@ class Die //models one single dice cube
 		if(numDots == 1)
 		{
 			numDots = 1;
-			sum = sum + numDots;
 			
-
 		}
 		if(numDots == 2)
 		{
@@ -110,6 +133,7 @@ class Die //models one single dice cube
 		{
 
 			ellipse(myX+25, myY+25, 10, 10);
+
 			
 		}
 		if(numDots == 2)
